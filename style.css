@@ -8,8 +8,15 @@ body {
 header, footer {
   background: #007bff;
   color: white;
-  padding: 20px 40px;
+  padding: 3px 40px;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+html {
+  scroll-behavior: smooth;
 }
 nav {
   display: flex;
@@ -21,6 +28,7 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  padding-bottom: 8px;
 }
 section {
   padding: 60px 40px;
@@ -174,65 +182,77 @@ h1, h2 {
 }
 
 .projects {
-    padding: 40px;
-    background-color: #f5f5f5;
-  }
-  
-  .projects h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    color: #007bff;
-  }
-  
-  .project-card {
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-    overflow: hidden;
-    padding: 20px;
-  }
-  
-  .project-content {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .project-content.left img {
-    order: 0;
-  }
-  
-  .project-content.right img {
-    order: 1;
-  }
-  
-  .project-content.right .project-details {
-    text-align: right;
-  }
-  
-  .project-content img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  .project-details {
-    flex: 1;
-  }
-  
-  .project-details h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #007bff;
-  }
-  
-  .project-details p {
-    font-size: 1rem;
-    color: #555;
-  }
+  padding: 40px;
+  background-color: #f5f5f5;
+}
+
+.projects h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #007bff;
+}
+
+.project-card {
+  perspective: 1000px;
+  margin-bottom: 40px;
+}
+
+.project-inner {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.project-card:hover .project-inner {
+  transform: scale(1.02) rotateX(0.9deg) rotateY(-0.9deg);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.project-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.project-content.left img {
+  order: 0;
+}
+
+.project-content.right img {
+  order: 1;
+}
+
+.project-content.right .project-details {
+  text-align: right;
+}
+
+.project-content img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-details {
+  flex: 1;
+}
+
+.project-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.project-details p {
+  font-size: 1rem;
+  color: #555;
+}
+
 
 .about-content h2{
   font-size: large;
@@ -330,72 +350,12 @@ h1, h2 {
   .entry{
     color: #007bff;
   }
-
-  /* .experience {
-    padding: 60px 40px;
-    background-color: #ffffff;
-  } */
   
-  .experience h2 {
-    text-align: center;
-    color: #007bff;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-  }
-  
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    max-width: 800px;
-    margin: auto;
-  }
-  
-  .timeline-card {
-    background: #e0f2f1;
-    padding: 20px 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    opacity: 0;
-    transform: translateX(50px);
-    transition: all 0.6s ease;
-  }
-  
-  .timeline-card:hover {
-    transform: scale(2.52);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
-  }
-  
-  .timeline-card h3 {
-    color: #007bff;
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-  }
-  
-  .timeline-card p {
-    color: #444;
-    font-size: 1rem;
-  }
-  
-  /* Slide-in animations */
-  .slide-in-left {
-    transform: translateX(-50px);
-  }
-  
-  .slide-in-right {
-    transform: translateX(50px);
-  }
-  
-  .timeline-card.animate {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  
-  .experience {
-    background: #f8f9fa;
-    padding: 60px 40px;
-    text-align: center;
-  }
+.experience {
+  background: #f8f9fa;
+  padding: 60px 40px;
+  text-align: center;
+}
   
   .experience h2 {
     font-size: 2.5rem;
@@ -404,29 +364,33 @@ h1, h2 {
   }
   
   .experience-card {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
+    perspective: 1000px;
     margin: 20px auto;
-    width: 100%;
     max-width: 600px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
     opacity: 0;
     transform: translateX(-100px);
     animation: fadeInSlide 1s forwards;
-    perspective: 1000px;
+  }
+  
+  .experience-card.slide-in-right {
+    animation-name: fadeInSlideRight;
+    transform: translateX(100px);
+  }
+  
+  .experience-inner {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     will-change: transform;
     cursor: pointer;
   }
   
-  .experience-card:nth-child(even) {
-    animation-name: fadeInSlideRight;
-  }
-  
-  .experience-card:hover {
-    transform: scale(1.03) rotate(10deg);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  .experience-inner:hover {
+    transform: scale(1.05) rotateX(4deg) rotateY(-4deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   }
   
   .experience-card h3 {
@@ -449,22 +413,17 @@ h1, h2 {
   }
   
   @keyframes fadeInSlideRight {
-    from {
-      opacity: 0;
-      transform: translateX(100px);
-    }
     to {
       opacity: 1;
       transform: translateX(0);
     }
-  }
+  }  
   
-
-  .services {
-    background: #f8f9fa;
-    padding: 60px 40px;
-    text-align: center;
-  }
+.services {
+  background: #f8f9fa;
+  padding: 60px 40px;
+  text-align: center;
+}
   
   .services h2 {
     font-size: 2.5rem;
@@ -481,19 +440,26 @@ h1, h2 {
   }
   
   .service-card {
-    background: white;
+    background: transparent;
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px; /* Needed for 3D tilt */
     opacity: 0;
     transform: translateY(50px);
     animation: fadeUp 1s forwards;
   }
   
-  .service-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  .card-inner {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    will-change: transform;
+  }
+  
+  .service-card:hover .card-inner {
+    transform: scale(1.05) rotateX(10deg) rotateY(-10deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
   }
   
   .card-image {
@@ -537,6 +503,7 @@ h1, h2 {
   
   .view-project-btn:hover {
     background-color: #0056b3;
-    transform: scale(1.05);
+    transform: scale(1.05) rotateX(10deg) rotateY(-5deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
   }
   
