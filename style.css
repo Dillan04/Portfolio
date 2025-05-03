@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background: #f8f9fa;
-  color: #222;
+  color: #fefefe;
 }
 header, footer {
   background: #007bff;
@@ -28,7 +28,7 @@ section {
   margin: auto;
 }
 h1, h2 {
-  color: #007bff;
+  color: #ffffff;
 }
 
 .hero {
@@ -37,10 +37,12 @@ h1, h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e2e9fc;
-  padding: 0 2rem;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  background-image: url('assets/dillcraft1.png');
+  background-position-x: 50%;
+  background-position-y: 5%;
+  padding: 0 4rem;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 .hero-content {
@@ -232,6 +234,20 @@ h1, h2 {
     color: #555;
   }
 
+.about-content h2{
+  font-size: large;
+  color: #007bff;
+}
+
+.about-content p{
+  font-size: medium;
+  color: #007bff;
+}
+
+.about-content, .btn{
+  border-radius: 7px;
+}
+
 .hero, .about {
     position: relative;
     overflow: hidden;
@@ -293,7 +309,28 @@ h1, h2 {
     transform: translateY(0);
   }
 
-  
+  .testimonials-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 1;
+    border-radius: 15px;
+  }
+
+  .testimonials h2{
+    color: #007bff;
+  }
+
+  .entry{
+    color: #007bff;
+  }
+
   /* .experience {
     padding: 60px 40px;
     background-color: #ffffff;
