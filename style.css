@@ -30,16 +30,122 @@ section {
 h1, h2 {
   color: #007bff;
 }
+
 .hero {
-  text-align: center;
-  background: linear-gradient(to right, #007bff, #0056b3);
-  color: white;
-  padding: 100px 20px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e2e9fc;
+  padding: 0 2rem;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
-.hero h1 {
-  font-size: 3em;
-  color: #ffffff;
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 80%;
+  gap: 3rem;
 }
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-left h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-left p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-left .btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.hero-left .btn:hover {
+  background-color: #007bff;
+  transform: scale(1.15) rotate(3deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideInFromRight 1.2s ease-out forwards;
+  opacity: 0; /* start hidden before animation */
+}
+
+.profile-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #007bff;
+}
+
+/* Slide-in animation */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left, .hero-right {
+    flex: none;
+    width: 100%;
+  }
+
+  .hero-left h1 {
+    font-size: 2rem;
+  }
+
+  .hero-left p {
+    font-size: 1.1rem;
+  }
+
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    margin-top: 2rem;
+    animation: none; /* optional: disable animation on mobile if too distracting */
+  }
+
+  .hero-right {
+    animation: none;
+    opacity: 1;
+    transform: translateX(0); /* make sure it shows normally */
+  }
+}
+
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -144,7 +250,7 @@ h1, h2 {
     z-index: 1;
   }
   
-  .hero-content, .about-content {
+  .hero-left, .about-content {
     position: relative;
     z-index: 2;
     animation: fadeInUp 1s ease-in-out;
