@@ -196,15 +196,19 @@ h1, h2 {
 }
 
 .projects {
-  padding: 40px;
-  background-color: #f5f5f5;
+  /* padding: 40px; */
+  background-color: #007bff;
+  background-blend-mode: multiply;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  width: 100%;
 }
 
 .projects h2 {
   text-align: center;
   margin-bottom: 40px;
   font-size: 2.5rem;
-  color: #007bff;
+  color: #ffffff;
 }
 
 .project-card {
@@ -214,8 +218,10 @@ h1, h2 {
 
 .project-inner {
   background: #ffffff;
+  justify-self: center;
+  width: 90%;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.462);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -316,7 +322,6 @@ h1, h2 {
 }
 
 
-
 .about-content h2{
   font-size: large;
   color: #007bff;
@@ -345,7 +350,7 @@ h1, h2 {
     background-image: url('assets/bg1.jpg'); /* Change this */
     background-size: cover;
     background-position: center;
-    opacity: 0.15;
+    opacity: 0.25;
     z-index: 1;
   }
   
